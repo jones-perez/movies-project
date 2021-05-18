@@ -11,7 +11,7 @@ const getMovies = () => {
             console.log(movies);
             let htmlStr = "";
             for (let movie of movies) {
-                htmlStr = `${htmlStr}<h1>${movie.title}</h1><p></p>`
+                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><p>rating-${movie.rating}</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><p></p>`
             }
             $('#container').html(htmlStr)
         })
