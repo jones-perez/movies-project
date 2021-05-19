@@ -16,17 +16,13 @@ const getMovies = () => {
             console.log(movies);
             let htmlStr = "";
             for (let movie of movies) {
-                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p>`
+                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button onclick = deleteMovie(${movie.id}) id="movieID${movie.id}">Delete Button</button>`
             }
             $('#container').html(htmlStr)
 
         })
 }
 //USER ADD MOVIES
-
-
-
-
 
 $("#addMovie").click(() => {
     let userMovie = $('#userMovieName').val();
@@ -54,15 +50,11 @@ $("#addMovie").click(() => {
 
 getMovies();
 
-
-
 // EDIT MOVIES
 
 $(".edit").click(function (){
     prompt("hello");
 });
-
-
 
 $("#saveChanges").click(function (){
     let editedTitle = $("#editTitle").val();
@@ -117,6 +109,45 @@ console.log(inputIndex);
 
 });
 
+//Delete Buttons
+// $('#movieID2').click(function(){
+//     deleteMovie(2);
+// });
+// $('#movieID3').click(function(){
+//     deleteMovie(3);
+// })
+// $('#movieID4').click(function(){
+//     deleteMovie(4);
+// })
+// $('#movieID5').click(function(){
+//     deleteMovie(5);
+// })
+// $('#movieID6').click(function(){
+//     deleteMovie(6);
+// })
+// $('#movieID7').click(function(){
+//     alert("Button works!")
+// })
+// $('#movieID8').click(function(){
+//     deleteMovie(8);
+// })
+// $('#movieID9').click(function(){
+//     deleteMovie(9);
+// })
+// $('#movieID10').click(function(){
+//     deleteMovie(10);
+// })
+
+// Delete Movie Formula- The only way I could get this to work was to put "onclick" in the delete buttons. Need to get instruction as to why the click funtions would not work.
+function deleteMovie(id) {
+    let deleteOptions = {
+        method: 'DELETE',
+        Headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+    fetch("https://diagnostic-thirsty-ptarmigan.glitch.me/movies/" + id, deleteOptions).then(getMovies)
+}
 
 // $('#movieChoice').change(function () {
 //     let dropdownVal = $(this).val();
