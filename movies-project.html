@@ -3,25 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Movies Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/movies-project.css">
 </head>
 <body>
 <div id="loading">
-    <img id="loading-image" src="img/tenor.gif" alt="Loading..." />
+    <img id="loading-image" src="img/tenor.gif" alt="Loading..."/>
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Movie Editing</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <select id="movieChoice">
+                <option class="dropdown-item" href="#" id="movie1">DOWN</option>
+                <option class="dropdown-item" href="#" id="movie2">TENET</option>
+                <option class="dropdown-item" href="#" id="movie3">RESIDENT EVIL</option>
+                <option class="dropdown-item" href="#" id="movie4">BOOGALO</option>
+                <option class="dropdown-item" href="#" id="movie5">TOY STORY</
+                >
+            </select>
+
+
+            <div class="modal-body">
+                Edit Movie Title
+                <input id="editTitle">
+            </div>
+            <div class="modal-body">
+                Edit Rating
+                <input id="editRating">
+            </div>
+            <div class="modal-body">
+                Edit Genre
+                <input id="editGenre">
+            </div>
+            <div class="modal-body">
+                Edit Plot
+                <input id="editPlot">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="saveChanges" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="container">
 </div>
-<p id="rating"></p>
-<p id="genre"></p>
-    <label for="userMovieName">Movie name:</label><br>
-    <input type="text" id="userMovieName"><br>
-    <label for="userMovieRating">Movie rating:</label><br>
-    <input type="text" id="userMovieRating">
+<div class="card" style="width: 50vw">
+<label for="userMovieName">Movie Name:</label><br>
+<input type="text" id="userMovieName"><br>
+<label for="userMovieRating">Movie Rating:</label><br>
+<input type="text" id="userMovieRating">
+<label for="userMovieGenre">Movie Genre:</label><br>
+<input type="text" id="userMovieGenre">
+<label for="userMoviePlot">Movie Plot:</label><br>
+<input type="text" id="userMoviePlot">
+</div>
 <button id="addMovie">Add Movie</button>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/movies-project.js"></script>
 <!--<script type="text/javascript">$("#loading_wrap").addClass(".loading").delay(2500).queue(function(next) {$(this).removeClass(".loading");next(); });</script>-->
 
