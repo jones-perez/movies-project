@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Movies Project</title>
+    <link rel="stylesheet" href="css/movies-project.css">
 </head>
 <body>
+<div id="loading">
+    <img id="loading-image" src="img/tenor.gif" alt="Loading..." />
+</div>
+
 <div id="container">
 </div>
 <p id="rating"></p>
 <p id="genre"></p>
+    <label for="userMovieName">Movie name:</label><br>
+    <input type="text" id="userMovieName"><br>
+    <label for="userMovieRating">Movie rating:</label><br>
+    <input type="text" id="userMovieRating">
+<button id="addMovie">Add Movie</button>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/movies-project.js"></script>
+<!--<script type="text/javascript">$("#loading_wrap").addClass(".loading").delay(2500).queue(function(next) {$(this).removeClass(".loading");next(); });</script>-->
+
 </body>
 </html>

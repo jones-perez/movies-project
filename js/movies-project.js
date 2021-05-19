@@ -1,3 +1,8 @@
+//Timer for loading gif
+setTimeout(function () {
+    $('#loading').hide();
+}, 1000);
+
 let getOptions = {
     method: 'GET',
     headers: {
@@ -16,4 +21,29 @@ const getMovies = () => {
             $('#container').html(htmlStr)
         })
 }
+//USER ADD MOVIES
+
+
+
+
+
+$("#addMovie").click(() => {
+    let userMovie = $('#userMovieName').val();
+    let userRating = $('#userMovieRating').val();
+    let newMovie = {
+        "title": userMovie,
+        "rating": userRating
+    };
+    let postOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMovie),
+    }
+    fetch("https://diagnostic-thirsty-ptarmigan.glitch.me/movies", postOptions)
+        .then(getMovies)
+});
+
+
 getMovies();
