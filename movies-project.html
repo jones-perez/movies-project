@@ -7,14 +7,46 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/movies-project.css">
 </head>
-<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Horror</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Comedy</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Contact Us</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<body style="background-color: black; color: white; padding-left: 2em; padding-right: 2em;">
 <div id="loading">
     <img id="loading-image" src="img/tenor.gif" alt="Loading..."/>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -23,7 +55,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Movie Editing</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="color: black">Movie Editing</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -39,19 +71,19 @@
             </select>
 
 
-            <div class="modal-body">
+            <div class="modal-body" style="color: black">
                 Edit Movie Title
                 <input id="editTitle">
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: black ">
                 Edit Rating
                 <input id="editRating">
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: black">
                 Edit Genre
-                <input id="editGenre">
+                <input id="editGenre" style="color: black">
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: black">
                 Edit Plot
                 <input id="editPlot">
             </div>
@@ -65,7 +97,7 @@
 
 <div id="container">
 </div>
-<div class="card" style="width: 50vw">
+<div class="card" style="width: 50vw;background-color: black; color: white; padding-top: 10em">
 <label for="userMovieName">Movie Name:</label><br>
 <input type="text" id="userMovieName"><br>
 <label for="userMovieRating">Movie Rating:</label><br>
@@ -74,9 +106,15 @@
 <input type="text" id="userMovieGenre">
 <label for="userMoviePlot">Movie Plot:</label><br>
 <input type="text" id="userMoviePlot">
+<button id="addMovie" class="btn-primary">Add Movie</button>
 </div>
-<button id="addMovie">Add Movie</button>
 
+<div>
+    <h4>Want to edit something about a movie? Click Below!</h4>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Edit Movies
+</button>
+</div>
 <p id="postertest">Test</p>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -25,21 +25,27 @@ const getMovies = () => {
             }
             $('#container').html(htmlStr)
             $('#movieChoice').html(htmlStr2)
-
         })
 }
 //USER ADD MOVIES
+// function movieSearch(movie) {
+//     $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${movie}`).done(function (data) {
+//         console.log(data)
+//         var movieSearchPoster = data.Poster
+//         $('#postertest').html(`<img src=${movieSearchPoster}>`)
+//     })
+// }
 
 $("#addMovie").click(() => {
     let userMovie = $('#userMovieName').val();
     let userRating = $('#userMovieRating').val();
     let userGenre = $('#userMovieGenre').val();
     let userPlot = $('#userMoviePlot').val();
-    let userPoster = $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${userMovie}`).done(function (data) {
-            userPoster = data.Poster
-        console.log(userPoster)
+    $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${userMovie}`).done(function (data) {
+           let userPoster = data.Poster;
+        console.log(userPoster);
 
-    })
+
     let newMovie = {
         "title": userMovie,
         "rating": userRating,
@@ -59,7 +65,7 @@ $("#addMovie").click(() => {
         .then(getMovies)
 });
 
-
+});
 getMovies();
 
 // EDIT MOVIES
