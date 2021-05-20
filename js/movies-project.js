@@ -20,21 +20,16 @@ const getMovies = () => {
             let htmlStr = "";
             let htmlStr2 = "";
             for (let movie of moviesArr) {
+                // htmlStr += "<div class='card'>";
                 htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><img alt="..." src="${movie.poster}"> <p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button id="movieID${movie.id}" class="btn btn-danger" onclick = deleteMovie(${movie.id})>Delete Button</button>`
                 htmlStr2 = `${htmlStr2}<option id="${movie.id}" value="${movie.id}">${movie.title}</option>`
+                htmlStr += "</div>"
             }
             $('#container').html(htmlStr)
             $('#movieChoice').html(htmlStr2)
         })
 }
 //USER ADD MOVIES
-// function movieSearch(movie) {
-//     $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${movie}`).done(function (data) {
-//         console.log(data)
-//         var movieSearchPoster = data.Poster
-//         $('#postertest').html(`<img src=${movieSearchPoster}>`)
-//     })
-// }
 
 $("#addMovie").click(() => {
     let userMovie = $('#userMovieName').val();
