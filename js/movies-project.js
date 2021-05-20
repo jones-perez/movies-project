@@ -16,7 +16,7 @@ const getMovies = () => {
             console.log(movies);
             let htmlStr = "";
             for (let movie of movies) {
-                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button onclick = deleteMovie(${movie.id}) id="movieID${movie.id}">Delete Button</button>`
+                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button id="movieID${movie.id}" class="btn btn-danger" onclick = deleteMovie(${movie.id})>Delete Button</button>`
             }
             $('#container').html(htmlStr)
 
@@ -138,7 +138,7 @@ console.log(inputIndex);
 //     deleteMovie(10);
 // })
 
-// Delete Movie Formula- The only way I could get this to work was to put "onclick" in the delete buttons. Need to get instruction as to why the click funtions would not work.
+// Delete Movie Formula- The only way I could get this to work was to put "onclick" in the delete buttons via getMovie function. Need to get instruction as to why the click functions above would not work.
 function deleteMovie(id) {
     let deleteOptions = {
         method: 'DELETE',
@@ -154,3 +154,10 @@ function deleteMovie(id) {
 //     console.log(dropdownVal)
 // });
 
+//Poster Attempt--This works. Just need to drill down for poster
+function movieSearch(movie) {
+    $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${movie}`).done(function (data) {
+        console.log(data)
+    })
+}
+movieSearch("willy wonka")
