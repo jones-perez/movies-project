@@ -20,7 +20,7 @@ const getMovies = () => {
             let htmlStr = "";
             let htmlStr2 = "";
             for (let movie of moviesArr) {
-                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><img src="${movie.poster}"> <p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button id="movieID${movie.id}" class="btn btn-danger" onclick = deleteMovie(${movie.id})>Delete Button</button>`
+                htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><img alt="..." src="${movie.poster}"> <p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button id="movieID${movie.id}" class="btn btn-danger" onclick = deleteMovie(${movie.id})>Delete Button</button>`
                 htmlStr2 = `${htmlStr2}<option id="${movie.id}" value="${movie.id}">${movie.title}</option>`
             }
             $('#container').html(htmlStr)
@@ -35,11 +35,17 @@ $("#addMovie").click(() => {
     let userRating = $('#userMovieRating').val();
     let userGenre = $('#userMovieGenre').val();
     let userPlot = $('#userMoviePlot').val();
+    let userPoster = $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${userMovie}`).done(function (data) {
+            userPoster = data.Poster
+        console.log(userPoster)
+
+    })
     let newMovie = {
         "title": userMovie,
         "rating": userRating,
         "genre": userGenre,
-        "plot": userPlot
+        "plot": userPlot,
+        "poster": userPoster
     };
 
     let postOptions = {
@@ -57,7 +63,7 @@ $("#addMovie").click(() => {
 getMovies();
 
 // EDIT MOVIES
-$("#saveChanges").click(function (){
+$("#saveChanges").click(function () {
     let editedTitle = $("#editTitle").val();
     let editedRating = $("#editRating").val();
     let editedGenre = $("#editGenre").val();
@@ -87,15 +93,15 @@ $("#saveChanges").click(function (){
         .then(movies => {
             console.log(movies);
 
-    fetch(`https://diagnostic-thirsty-ptarmigan.glitch.me/movies/${selectedVal}`, patchOptions).then(getMovies);
+            fetch(`https://diagnostic-thirsty-ptarmigan.glitch.me/movies/${selectedVal}`, patchOptions).then(getMovies);
 
-    console.log(editedTitle);
-    console.log(editedRating);
-    console.log(editedGenre);
-    console.log(editedPlot);
+            console.log(editedTitle);
+            console.log(editedRating);
+            console.log(editedGenre);
+            console.log(editedPlot);
 
-    // ending brackets for the then(movies =>) call
-});
+            // ending brackets for the then(movies =>) call
+        });
 
 
 });
@@ -117,9 +123,30 @@ function deleteMovie(id) {
 // });
 
 //Poster Attempt--This works. Just need to drill down for poster
+// const getMoviesposter = (movie) => {
+//     fetch(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${movie}`, getOptions)
+//         .then(resp => resp.json())
+//         .then(moviesposter => {
+//             console.log(moviesposter);
+//             let htmlStr = "";
+//             for (let movieposters of movie) {
+//                 htmlStr = `${htmlStr} <img src="${movie.poster}">`
+//             }
+//             $('#postertest').html(htmlStr)
+//         })
+// }
+
+// getMoviesposter("scarface")
+
+
 function movieSearch(movie) {
     $.ajax(`http://www.omdbapi.com/?apikey=${OMDB_TOKEN}&t=${movie}`).done(function (data) {
         console.log(data)
+        var movieSearchPoster = data.Poster
+        $('#postertest').html(`<img src=${movieSearchPoster}>`)
     })
 }
-movieSearch("scarface")
+
+movieSearch("halloween")
+
+
