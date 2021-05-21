@@ -29,6 +29,8 @@ const getMovies = () => {
             $('#movieChoice').html(htmlStr2)
         })
 }
+
+
 //USER ADD MOVIES
 
 $("#addMovie").click(() => {
@@ -155,10 +157,10 @@ function deleteMovie(id) {
 //     alert( "Form submitted" );
 // });
 // This works and pulls the user input on submit
-//     const userSearchVal = $("form").submit(function (event){
-//     let info = $("#searchInput").val();
-//     console.log(info);
-// });
+    const userinputVal = $("form").submit(function (event){
+    let info = $("#searchInput").val();
+    console.log(info);
+});
 
 // info grabs the user input, but title needs to grab the titles from the movie arrays and compare them, that way i can create an link to the movie or alert the user we do not have it but link them to the add a movie section
 // let usersInput = moviesArr.map(function (user){
@@ -166,32 +168,33 @@ function deleteMovie(id) {
 //     return title;
 // });
 
-let title = moviesArr.map(movie => movie.title);
-console.log(title);
-console.log(moviesArr);
+// let title = moviesArr.map(movie => movie.title);
+// console.log(title);
+// console.log(moviesArr);
 
 
-console.log(usersInput);
+// console.log(usersInput);
 
 
 //current issue is i cannot get the moviesarray copy to properly display the movie list as it does in the original, if i can get that to work i
 // can then plug into the search bar function properly so that it alerts the user if we do have it and link
 // them to that part of the page or if we dont have it and it links them to the edit part of the page
 
+// function i want to work
 
-const userSearchVal = $("form").submit(function (event){
-    let info = $("#searchInput").val();
-    //let title is above this, trying to map the array but its empty because its a copy not the original movie array
-    if (info === title ){
-        alert("We do have this movie! *insert link to it*");
-    } else {
-        alert("No unfortunately we do not, would you like to add it? *insert link to the add movie section*"))
-    }
-    console.log(title)
-    console.log(moviesArr);
-    console.log(info);
-
-});
+// const userSearchVal = $("form").submit(function (event){
+//     let info = $("#searchInput").val();
+//     //let title is above this, trying to map the array but its empty because its a copy not the original movie array
+//     if (info === title ){
+//         alert("We do have this movie! *insert link to it*");
+//     } else {
+//         alert("No unfortunately we do not, would you like to add it? *insert link to the add movie section*")
+//     }
+//     console.log(title)
+//     console.log(moviesArr);
+//     console.log(info);
+//
+// });
 
 
 
