@@ -23,7 +23,7 @@ const getMovies = () => {
                 // htmlStr += "<div class='card'>";
                 htmlStr = `${htmlStr}<h1>${movie.title.toUpperCase()}</h1><img id="movieID${movie.id}" alt="..." src="${movie.poster}"> <p>Rating-${movie.rating}/5</p><p>${movie.genre}</p><p id="plot">${movie.plot}</p><button id="movieID${movie.id}" class="btn btn-danger" onclick = deleteMovie(${movie.id})>Delete Button</button>`
                 htmlStr2 = `${htmlStr2}<option id="${movie.id}" value="${movie.id}">${movie.title}</option>`
-                htmlStr += "</div>"
+                // htmlStr += "</div>"
 
             }
             $('#container').html(htmlStr)
